@@ -1,0 +1,53 @@
+RelationNet with ResNet10 as backbone
+---the first conv-bn-relu-pool--
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.pooling.MaxPool2d'>
+---simple block 1 inputdim 64 outputdim 64---
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.activation.ReLU'>
+---simple block2 inputdim 64 outputdim 128----
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.conv.Conv2d'>  #shortcut
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+---simple block3 inputdim 128 outputdim 256----
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+---simple block3 inputdim 256 outputdim 512----
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+--- RelationNet
+<class 'torch.nn.modules.loss.MSELoss'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.pooling.MaxPool2d'>
+<class 'torch.nn.modules.conv.Conv2d'>
+<class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+<class 'torch.nn.modules.activation.ReLU'>
+<class 'torch.nn.modules.pooling.MaxPool2d'>
+<class 'torch.nn.modules.linear.Linear'>
+<class 'torch.nn.modules.linear.Linear'>
+
