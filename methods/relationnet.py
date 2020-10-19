@@ -232,7 +232,10 @@ class RelationNetLRP(RelationNet):
       y_oh = y_oh.cuda()
       loss1 = self.loss_fn(relations, y_oh)
       loss2 = self.loss_fn(relations_lrp, y_oh)
-      loss = loss1 + loss2
+      if self.n_shot == 5:
+        loss = loss1 + loss2
+      if self.n_shot == 1:
+        loss = loss1 + 0.5 * loss2
       return relations, loss
     elif 'mse' in self.loss_type:
       y_oh = utils.one_hot(y_local, self.n_way)
