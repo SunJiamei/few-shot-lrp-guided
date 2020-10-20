@@ -201,9 +201,9 @@ class GnnNetLRP(GnnNet):
       loss1 = self.loss_fn(out, y_query)
       loss2 = self.loss_fn(out_lrp, y_query)
       # print(f'loss1 {loss1}|losslrp {loss2}')
-      if self.n_shot == 5:
+      if self.n_support == 5:
         loss = loss1 + loss2
-      if self.n_shot == 1:
+      if self.n_support == 1:
         loss = loss1 + 0.5 * loss2
     else:
       loss = self.loss_fn(scores, y_query)
