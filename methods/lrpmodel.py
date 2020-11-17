@@ -526,5 +526,5 @@ def explain_gnnnet():
 
 if __name__ == '__main__':
 
-  explain_gnnnet()
-  # explain_relationnet()
+  # explain_gnnnet()
+  explain_relationnet()

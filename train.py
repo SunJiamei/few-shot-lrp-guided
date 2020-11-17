@@ -101,9 +101,6 @@ if __name__=='__main__':
   if params.feature_wise_type  in ['LFT', 'FT']:
     print('--- LFTNet training: {} ---\n'.format(params.name))
     model = LFTNet(params, tf_path=params.tf_dir)
-  elif params.feature_wise_type in ['LFTAdaIN']:
-    print('--- LFTAdaINNet training: {} ---\n'.format(params.name))
-    model = LFTAdaINNet(params, tf_path=params.tf_dir)
   else:
     raise NotImplementedError('please specify the feature_wise_type when training with LFT')
   model.cuda()

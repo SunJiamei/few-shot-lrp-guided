@@ -11,15 +11,10 @@ def get_lrp_hook(lrp_method, lrp_params=None):
         return lrp_module.propagate_relevance(module, relevance_input,
                                               relevance_output,
                                               lrp_method, lrp_params=lrp_params)
-
     return lrp_hook
 
 
 def save_input_hook(module, input_, output):
-    # if len(input_) != 1:
-        # TODO multiple inputs
-        # raise NotImplementedError("Can only handle single input.")
-    # Define new member variable to store the input
     module.input = input_
 
 
@@ -81,22 +76,7 @@ def compute_lrp(model, sample, target=None, return_output=False,
                 "Explanation of difference only possible for two classes, not for {}".format(logits_plus.shape[1]))
 
     loss = criterion(logits_plus)
-    # Give output as anchor for LRP, optionally zero out some dimensions
-    # if target is None:
-    #     anchor = logits_plus
-    # else:
-    #     anchor = torch.zeros_like(logits_plus).to(logits_plus.device)
-    #     for a, x in zip(anchor, logits_plus):
-    #         if explain_diff:
-    #             raise NotImplementedError(
-    #                 "Difference explanation is not implemented yet")
-    #         else:
-    #             a[target] = x[target]
     anchor = target
-    # TODO output.backward(torch.Tensor(anchor))
-
-    # TODO Normalize anchor
-    # anchor /= anchor.sum(1)
     model.zero_grad()
     sample.retain_grad()
 
@@ -111,12 +91,7 @@ def compute_lrp(model, sample, target=None, return_output=False,
 # TODO remove hooks again to restore model to original state
 def remove_lrp(model):
     # TODO can be done like this:
-    # h = v.register_hook(...)
-    # h.remove()
     preset = lrp_presets.LRPPreset()
-
-    # Override default parameters if provided
-
     lrp_method_curr = preset.lrp_method_input
     for module in model.modules():
         # Take only the leaf modules
