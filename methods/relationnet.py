@@ -264,7 +264,7 @@ class RelationNetLRP(RelationNet):
     # print('relations', relations.sum())
     # print(relation_pairs.sum())
     relations = self.relation_module(relation_pairs).view(-1, self.n_way)
-    if self.lrptraining:
+    if self.training:
 
       self.relation_module.eval()
       relation_pairs_lrp = relation_pairs.detach()
